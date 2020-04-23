@@ -1,0 +1,112 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+    background-color: #efefef;
+    height: 100%;
+}
+
+header {
+    margin-top: -50px; /* 固定ナビの高さ分のネガティブマージン */
+    padding-top: 50px; /* 打ち消し用のパディング */
+    height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #343a40;
+    line-height: 50px;
+    box-shadow: -1px 1px 1px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.header-title {
+    padding-left:20px;
+    float: left;
+}
+
+.header-logo {
+    font-family: 'PT Mono',sans-serif;
+    color: #fff;
+    font-weight: 500;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.header-right {
+    float: right;
+}
+
+li {
+    float: left;
+    line-height: normal;
+    list-style: none;
+}
+
+.header-right a {
+    color: #7c8288;
+    font-weight: 500;
+    padding: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.header-right a:hover {
+    color: #fff;
+    transition: color .3s;
+}
+
+#explanation{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    display: none;
+}
+
+.modal {
+    position: absolute;
+    top: 10%;
+    left: 34%;
+    background-color: #e6ecf0;
+    padding: 20px 0 40px;
+    border-radius: 10px;
+    width: 450px;
+    height: auto;
+    text-align: center;
+}
+
+.modal h2{
+    padding-top: 25px;
+}
+
+.page{
+    font-size: 20px;
+    padding: 20px;
+    line-height: 50px;
+    text-align: left;
+}
+
+.page-list li{
+    text-align: left;
+}
+
+.fa {
+    margin-right: 5px;
+  }
+
+.fa-times {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: rgba(128, 128, 128, 0.46);
+    cursor: pointer;
+}
+
+h1{
+    padding-top:50px;
+    text-align:center
+}

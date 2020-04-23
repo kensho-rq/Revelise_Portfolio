@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Revelise</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <!-- ヘッダー -->
+    <header>
+      <div class="container">
+
+        <div class="header-title">
+          <div id="top-btn" class="header-logo">Revelise</div>
+        </div>
+
+        <div class="header-menu">
+          <div class="header-left"></div>
+
+            <ul class="header-right">
+              <li>
+                <a class="beginner-modal"><i class="fas fa-bell"></i> 初めての方</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-book-open"></i> 投稿一覧</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-sign-in-alt"></i> ログイン</a>
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-user-plus"></i> ユーザー登録</a>
+              </li>
+            </ul>
+
+        </div>
+
+      </div>
+
+
+    </header>
+
+    <div id="explanation">
+      <div class="modal">
+
+        <div class="close-modal">
+          <i class="fa fa-2x fa-times"></i>
+        </div>
+
+        <h2>Revelise(レーヴリーズ)へようこそ！</h2>
+        <div class="page">
+          Reveliseでは使ってみた商品の感想を投稿、紹介するサイトです。
+        </div>
+        <ul class="page-list">
+          <li>
+            <i class="fas fa-user-plus"></i> ユーザー登録
+            <p>ユーザー登録することでお気に入りのユーザーや商品を登録でき、商品の感想を投稿出来ます。</p>
+          </li>
+          <li>
+            <i class="fas fa-camera-retro"></i> 投稿機能
+            <p>商品の感想を画像と一緒に投稿することができます。</p>
+          </li>
+          <li>
+            <i class="fas fa-heart"></i> いいね機能
+            <p>お気に入りの商品にはいいねをつけることができます。</p>
+          </li>
+          <li>
+            <i class="fas fa-plus-circle"></i> フォロー機能
+            <p>気になるユーザーを登録することができます。</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <%= yield %>
+
+  </body>
+</html>
