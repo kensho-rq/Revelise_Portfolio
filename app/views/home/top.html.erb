@@ -1,1 +1,94 @@
 <h1>投稿一覧</h1>
+
+<div class="category">
+    <h3>カテゴリー</h3>
+    <%= form_tag "/", :method => 'get' do %>
+        <ul>
+            <li>
+                <%= submit_tag "パソコン", name: "category_name" , value: "パソコン" %>
+            </li>
+            <li>
+                <%= submit_tag "PCモニター", name: "category_name" , value: "PCモニター" %>
+            </li>
+            <li>
+                <%= submit_tag "タブレット", name: "category_name" , value: "タブレット" %>
+            </li>
+            <li>
+                <%= submit_tag "スマートフォン", name: "category_name" , value: "スマートフォン" %>
+            </li>
+            <li>
+                <%= submit_tag "マウス", name: "category_name" , value: "マウス" %>
+            </li>
+            <li>
+                <%= submit_tag "キーボード", name: "category_name" , value: "キーボード" %>
+            </li>
+            <li>
+                <%= submit_tag "USB", name: "category_name" , value: "USB" %>
+            </li>
+            <li>
+                <%= submit_tag "HDD", name: "category_name" , value: "HDD" %>
+            </li>
+            <li>
+                <%= submit_tag "SSD", name: "category_name" , value: "SSD" %>
+            </li>
+        </ul>
+    <% end %>
+</div>
+
+<div class="top-container">
+    <% @posts.each do |post| %>
+        <div class="top-item">
+            <% if @current_user %>
+                <%= link_to("/posts/#{post.id}", {class: "top-link"}) do %>
+
+                    <div class="item-image">
+                        <img src="<%= "/item_images/#{post.item_image}" %>">
+                    </div>
+
+                    <div class="item-title">
+                        <%= post.item_title %>
+                    </div>
+
+                    <% user = User.find_by(id: post.user_id) %>
+                    <div class="user-name">
+                        <p>投稿者:&nbsp;</p><%= user.name %>
+                    </div>
+
+                    <% likes_count = Like.where(post_id: post.id).count %>
+                    <div class="likes-count">
+                        <span class="fa fa-heart like-btn-unlike"></span>
+                        <%= likes_count %>
+                    </div>
+
+                <% end %>
+            <% else %>
+                <%= link_to("/login") do %>
+
+                    <div class="item-image">
+                        <img src="<%= "/item_images/#{post.item_image}" %>">
+                    </div>
+
+                    <div class="item-title">
+                        <%= post.item_title %>
+                    </div>
+
+                    <% user = User.find_by(id: post.user_id) %>
+                    <div class="user-name">
+                        <%= user.name %>
+                    </div>
+
+                    <% likes_count = Like.where(post_id: post.id).count %>
+                    <div class="likes-count">
+                        <span class="fa fa-heart like-btn-unlike"></span>
+                        <%= likes_count %>
+                    </div>
+
+                <% end %>
+            <% end %>
+
+        </div>
+    <% end %>
+    <div class="page">
+        <%= paginate @posts %>
+    </div>
+</div>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Revelise</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+
+    <header>
+      <div class="container">
+
+        <div class="header-title">
+          <%= link_to("/") do %>
+            <div id="top-btn" class="header-logo">Revelise</div>
+          <% end %>
+        </div>
+
+        <div class="header-menu">
+
+          <div class="header-left">
+            <ul>
+              <li>
+                <%= form_tag "/", :method => 'get' do %>
+                    <%= text_field_tag :search, params[:search], :class=>"search-text",placeholder: "キーワードから探す" %>
+                    <%= button_tag :type => "submit", :class =>"btn btn-default btn-s-md" do %>
+                      <i class="fas fa-search"></i>
+                    <% end %>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+
+          <ul class="header-right dropdwn">
+          <% if @current_user %>
+              <li>
+                <a class="beginner-modal"><i class="fas fa-bell"></i>&nbsp;初めての方</a>
+              </li>
+              <li>
+                <%= link_to("/posts/new") do %>
+                  <i class="fas fa-camera-retro"></i>&nbsp;新規投稿
+                <% end %>
+              </li>
+              <li>
+                <%= link_to("/") do %>
+                  <i class="fas fa-book-open"></i>&nbsp;投稿一覧
+                <% end %>
+              </li>
+              <li>
+                <i class="fas fa-user"></i>&nbsp;<%=  @current_user.name %>&nbsp;&nbsp;<i class="fas fa-sort-down"></i>
+                    <ul class="dropdwn_menu">
+                      <li>
+                        <%= link_to("/users/#{@current_user.id}") do %>
+                          マイページ
+                        <% end %>
+                      </li>
+                      <li>
+                        <%= link_to("/users/#{@current_user.id}/edit") do %>
+                          ユーザー編集
+                        <% end %>
+                      </li>
+                      <li>
+                        <%= link_to("/users/#{@current_user.id}/likes") do %>
+                          いいね！リスト
+                        <% end %>
+                      </li>
+                      <li>
+                        <%= link_to("/users/#{@current_user.id}/follows") do %>
+                          フォローリスト
+                        <% end %>
+                      </li>
+                      <li>
+                        <%= link_to("/logout") do %>
+                          ログアウト
+                        <% end %>
+                      </li>
+                    </ul>
+              </li>
+          <% else %>
+              <li>
+                <a class="beginner-modal"><i class="fas fa-bell"></i>&nbsp;初めての方</a>
+              </li>
+              <li>
+                <%= link_to("/") do %>
+                  <i class="fas fa-book-open"></i>&nbsp;投稿一覧
+                <% end %>
+              </li>
+              <li>
+                <%= link_to("/login") do %>
+                  <i class="fas fa-sign-in-alt"></i>&nbsp;ログイン
+                <% end %>
+              </li>
+              <li>
+                <%= link_to("/signup") do %>
+                  <i class="fas fa-user-plus"></i>&nbsp;ユーザー登録
+                <% end %>
+              </li>
+            <% end %>
+            </ul>
+        </div>
+
+      </div>
+    </header>
+
+    <div id="explanation">
+      <div class="modal">
+
+        <div class="close-modal">
+          <i class="fa fa-2x fa-times"></i>
+        </div>
+
+        <h2>Revelise(レーヴリーズ)へようこそ！</h2>
+
+        <div class="page">
+          Reveliseでは、使用した商品の感想を投稿して、購入をするか迷ってる人に情報を提供するサイトです。
+        </div>
+
+        <ul class="page-list">
+          <li>
+            <p class="page-list-title"><span class="fas fa-user-plus"></span>&nbsp;ユーザー登録</p>
+            <p>ユーザー登録することでお気に入りのユーザーや商品を登録でき、商品の感想を投稿出来ます。</p>
+          </li>
+          <li>
+            <p class="page-list-title"><span class="fas fa-camera-retro"></span>&nbsp;投稿機能</p>
+            <p>商品の感想を画像と一緒に投稿することができます。</p>
+          </li>
+          <li>
+            <p class="page-list-title"><span class="fas fa-heart"></span>&nbsp;いいね機能</p>
+            <p>お気に入りの商品にはいいねをつけることができます。</p>
+          </li>
+          <li>
+            <p class="page-list-title"><span class="fas fa-star st"></span>&nbsp;フォロー機能</p>
+            <p>気になるユーザーを登録することができます。</p>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="flash">
+      <% if flash[:notice] %>
+        <%= flash[:notice] %>
+      <% end %>
+    </div>
+    <%= yield %>
+
+  </body>
+</html>

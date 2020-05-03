@@ -1,3 +1,364 @@
 // Place all the styles related to the Post controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+    background-color: #efefef;
+    height: 100%;
+}
+
+header {
+    height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #343a40;
+    line-height: 50px;
+    box-shadow: -1px 1px 1px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.header-title a {
+    text-decoration: none;
+    padding-left:20px;
+    float: left;
+}
+
+.header-logo {
+    font-family: 'PT Mono',sans-serif;
+    color: #fff;
+    font-weight: 500;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.header-right {
+    float: right;
+}
+
+li {
+    float: left;
+    line-height: normal;
+    list-style: none;
+}
+
+.header-right a {
+    color: #7c8288;
+    font-weight: 500;
+    padding: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.header-right a:hover {
+    color: #fff;
+    transition: color .3s;
+}
+
+#explanation {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    display: none;
+}
+
+.modal {
+    position: absolute;
+    top: 10%;
+    left: 34%;
+    background-color: #e6ecf0;
+    padding: 20px 0 40px;
+    border-radius: 10px;
+    width: 450px;
+    height: auto;
+    text-align: center;
+}
+
+.modal h2 {
+    padding-top: 25px;
+}
+
+.page-list li {
+    text-align: left;
+}
+
+.fa {
+    margin-right: 5px;
+}
+
+.fa-times {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: rgba(128, 128, 128, 0.46);
+    cursor: pointer;
+}
+
+h1 {
+    padding-top:50px;
+    text-align:center
+}
+
+#img_field {
+    font-size: 15px;
+    margin-top: 10px;
+    padding: 5px 8px;
+    border: solid 1px #EDBC6C;
+    color: #666;
+    position: relative;
+    padding: 0;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 300px;
+    height: 250px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #fff;
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: 0.3s ease-out;
+}
+
+#img_field i {
+    font-size: 100px;
+    color: #aaa;
+    line-height: 250px;
+    transition: 0.3s ease-out;
+}
+
+#img_field i.add {
+    display: none;
+    font-size: 50px;
+    position: absolute;
+    top: -90px;
+    right: 15px;
+}
+
+#img_field{
+    text-align: center;
+}
+
+#img_field:hover {
+    background-color: #EDBC6C;
+    transition: 0.3s ease-out;
+    opacity: 0.9;
+}
+
+#img_field:hover i {
+    transition: 0.3s ease-out;
+    display: block;
+    color: #fff;
+}
+
+.like-btn {
+    color: #8899a6;
+}
+
+.like-btn-unlike{
+    color: #ff2581;
+}
+
+.post-box{
+    width: 800px;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 1%;
+    box-shadow: 0 2px 6px #c1ced7;
+}
+
+.post-user{
+    padding: 20px;
+}
+.post-user p{
+    margin: 0;
+}
+.post-user img{
+    margin-right: 10px;
+}
+
+.post-item-show{
+    width: 800px;
+    height: 100%;
+    overflow: hidden;
+    margin-top: 10px;
+    padding: 15px 0;
+    box-shadow: 0 2px 6px #c1ced7;
+}
+
+.post-index{
+    width: 800px;
+    margin: 0 auto;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 1%;
+    box-shadow: 0 2px 6px #c1ced7;
+}
+
+.name-image{
+    margin: 0ß;
+    width: 28px;
+    height: 28px;
+    border-radius: 15%;
+    box-shadow: 0 2px 6px #c1ced7;
+    object-fit: cover;
+    float: left;
+}
+
+.post-image{
+    width: 500px;
+    height: 400px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5%;
+    object-fit: cover;
+}
+
+form{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.post-write{
+    width: 450px;
+    height: 200px;
+}
+
+.post-title{
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    display: block;
+    font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+    font-weight:bold;
+}
+
+.category-name{
+    color: #fff;
+    background-color: #343a40;
+    margin: 0;
+}
+
+.post-item-comment{
+    display: block;
+    font-size: 20px;
+    width: 500px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+.post-item-show p{
+    display: block;
+    font-size: 20px;
+    width: 500px;
+    margin: 0 auto;
+    padding: 10px 0;
+    text-align: center;
+    border-top: 1px solid #c1ced7;
+}
+
+.post-item-show input[type="submit"]{
+    width: 150px;
+    margin: 10px 0 10px 0;
+    color: white;
+    display: inline-block;
+    opacity: 0.8;
+    border-radius: 4px;
+    background-color: #343a40;
+    padding: 15px 1px;
+    cursor: pointer;
+    box-shadow: none;
+    outline: none;
+}
+
+.comment-post{
+    display: block;
+    font-size: 20px;
+    width: 500px;
+    margin: 0 auto;
+    padding: 10px 0;
+    text-align: center;
+}
+hr{
+    color: #c1ced7;
+}
+
+.post-name a{
+    text-decoration: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+#img_field{
+    margin: 0 auto;
+}
+
+.edit-new-form{
+    padding: 30px 0 20px 0;
+    border-radius: 5%;
+    box-shadow: 0 2px 6px #c1ced7;
+    margin: 0 auto;
+    width: 800px;
+    height: 100%;
+}
+
+input.post-new-sibmit{
+    margin-top: 20px;
+    padding: 8px 24px;
+    color: white;
+    display: inline-block;
+    opacity: 0.8;
+    border-radius: 4px;
+    background-color:#242525;
+    padding:15px 40px;
+    cursor:pointer;
+    outline: none;
+}
+
+@media screen and (max-width:1024px){
+    input.post-new-sibmit {
+        width: 150px;
+        margin-top: 20px;
+        padding: 8px 24px;
+        color: white;
+        display: inline-block;
+        opacity: 0.8;
+        border-radius: 4px;
+        background-color: #242525;
+        padding: 15px 40px;
+        cursor: pointer;
+        outline: none;
+        height: 60px;
+    }
+    #img_field i {
+        font-size: 100px;
+        height: 400px;
+        color: #aaa;
+        line-height: 400px;
+        transition: 0.3s ease-out;
+    }
+
+    input.edit-title {
+        width: 500px;
+        margin: 5px 0 5px 0;
+        color: #000000;
+        display: inline-block;
+        opacity: 0.8;
+        border-radius: 4px;
+        padding: 8px 1px;
+        box-shadow: none;
+        outline: none;
+        font-size: 15px;
+    }
+    #img_field {
+        width: 400px;
+        height: 400px;
+    }
+}

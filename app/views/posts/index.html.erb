@@ -1,0 +1,71 @@
+<h1></h1>
+<div class="post-index">
+    <div class="post-box">
+        <div class="post-user">
+            <%= link_to("/users/#{@user.id}") do %>
+                    <img src="<%= "/user_images/#{@user.name_image}" %>", class='name-image' ">
+                    <p class="post-name"><%= @user.name %></p>
+            <% end %>
+            <p class="post-time"><%= @post.created_at.strftime("%Y-%m-%d %H:%M") %>&nbsp;に投稿</p>
+
+            <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+                <%= link_to("/likes/#{@post.id}/destroy", {method: "post"} ) do %>
+                    <span class="fa fa-heart like-btn-unlike"></span>
+                <% end %>
+            <% else %>
+                <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
+                    <span class="fa fa-heart like-btn"></span>
+                <% end %>
+            <% end %>
+            <%= @likes_count %>
+
+            <% if @current_user.id != @user.id %>
+                <% if Follow.find_by(user_id: @post.user_id, follow_id: @current_user.id) %>
+                    <%= link_to("/follows/#{@post.id}/destroy", {method: "post"} ) do %>
+                        <span class="fas fa-star"></span>
+                    <% end %>
+                <% else %>
+                    <%= link_to("/follows/#{@post.id}/create", {method: "post"}) do %>
+                        <span class="far fa-star"></span>
+                    <% end %>
+                <% end %>
+                <%= @follows_count %>
+            <% end %>
+            <p class="post-title">
+                <%= @post.item_title %>
+            </p>
+            <br/><p class="category-name"><%= @category.category_name %></p>
+        </div>
+
+        <div class="post-item-show">
+            <img src="<%= "/item_images/#{@post.item_image}" %>" , class="post-image">
+            <div class="post-item-comment">
+            <%= @post.comment %>
+            </div><br/>
+
+            <div><p>コメント入力欄</p></div>
+            <%= form_tag("/posts/#{@post.id}/comment") do %>
+                <textarea name="impression" class="post-write" placeholder="100文字以内"><%= @item_comment.impression %></textarea><br/>
+                <input type="submit" value="送信"　class="submit-btn">
+            <% end %>
+        </div>
+    </div>
+    <div class="post-comment">
+        <p class="comment-post">コメント欄</p>
+        <% @show_comments.each do |show_comment| %>
+            <% show_user = User.find_by(id: show_comment.user_id) %>
+        <div class="post-user">
+            <%= link_to("/users/#{show_user.id}") do %>
+                <img src="<%= "/user_images/#{show_user.name_image}" %>", class='name-image'>
+            <% end %>
+            <p class="post-name"><%= link_to(show_user.name, "/users/#{show_user.id}") %></p>
+            <p class="post-time"><%= show_comment.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+            <% if @current_user.id == show_user.id %>
+                <p class="post-name"><%= link_to("削除", "/posts/#{show_comment.id}/destroy", {method: "post"}) %></p>
+            <% end %>
+            <br/><%= show_comment.impression %>
+        </div>
+        <hr>
+        <% end %>
+    </div>
+</div>

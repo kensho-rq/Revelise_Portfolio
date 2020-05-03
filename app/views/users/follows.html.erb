@@ -1,0 +1,20 @@
+<h1>フォローリスト</h1>
+<div class="follow">
+    <% @follows.each do |follow| %>
+    <% user = User.find_by(id: follow.user_id) %>
+    <% follows_count = Follow.where(user_id: user.id).count %>
+        <%= link_to("/users/#{user.id}") do %>
+            <div class="follow-user">
+                <img src="<%= "/user_images/#{user.name_image}" %>">
+                <p><%= user.name %></p>
+                <p>
+                    <span class="fas fa-star"></span>
+                    <%= follows_count %>
+                </p>
+            </div>
+        <% end %>
+    <% end %>
+    <div class="page">
+        <%= paginate @follows %>
+    </div>
+</div>

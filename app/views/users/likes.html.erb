@@ -1,0 +1,27 @@
+<h1>いいね！リスト</h1>
+<div class="follow">
+<% @likes.each do |like| %>
+  <% post = Post.find_by(id: like.post_id) %>
+
+  <% if post != nil %>
+      <% user = User.find_by(id: post.user_id) %>
+      <% likes_count = Like.where(post_id: post.id).count %>
+      <%= link_to("/posts/#{post.id}") do %>
+        <div class="follow-user">
+          <img src="<%= "/item_images/#{post.item_image}" %>" >
+          <p><%= post.item_title %></p><br/>
+          <p><%= user.name %></p><br/>
+          <p>
+            <span class="fa fa-heart like-btn-unlike"></span>
+            <%= likes_count %>
+          </p>
+        </div>
+      <% end %>
+
+  <% end %>
+
+<% end %>
+<div class="page">
+    <%= paginate @likes %>
+</div>
+</div>

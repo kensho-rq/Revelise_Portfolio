@@ -1,0 +1,56 @@
+<h1>マイページ</h1>
+
+  <div class="user-profile">
+
+    <img src="<%= "/user_images/#{@user.name_image}" %>">
+    <ul>
+      <li>
+        <p>ユーザー名</p><br/>
+        <p class="user-name"><%= @user.name %></p>
+      </li>
+      <li>
+        <p>メールアドレス</p><br/>
+        <p class="user-email"><%= @user.email %></p>
+      </li>
+      <li>
+        <p>フォロワー数</p><br/>
+        <p class="user-email"><%= @follows_count %></p>
+      </li>
+      <li>
+        <p>プロフィール</p><br/>
+        <% if @user.profile == nil %>
+        <p>ーーーーー</p>
+        <% else %>
+        <p class="user-comment"><%= @user.profile %></p>
+        <% end %>
+      </li>
+      <li>
+        <% if @current_user.id == @user.id %>
+          <%= link_to("編集", "/users/#{@user.id}/edit", {class: "user-link"}) %>
+        <% end %>
+      </li>
+    </ul>
+
+  </div>
+
+<h1>投稿一覧</h1>
+
+  <div class="post-show">
+    <% @posts.each do |post| %>
+    <div class="post-item">
+
+        <%= link_to("/posts/#{post.id}") do %>
+          <img src="<%= "/item_images/#{post.item_image}" %>">
+          <p><%= post.item_title %></p>
+        <% end %>
+
+        <p><%= post.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+        <% if @current_user.id == @user.id %>
+          <p><%= link_to("削除", "/users/#{post.id}/destroy", method: :post) %></p>
+        <% end %>
+    </div>
+    <% end %>
+    <div class="page">
+        <%= paginate @posts %>
+    </div>
+  </div>

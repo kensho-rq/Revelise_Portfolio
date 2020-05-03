@@ -1,0 +1,43 @@
+<div class="user-main>">
+
+    <div class="form-body">
+
+    <h1>新規ユーザー登録</h1>
+
+        <%= form_tag("/users/create") do %>
+
+            <p>ユーザー名</p>
+            <% @user.errors.full_messages_for(:name).each do |message| %>
+                <div class="form-error">
+                    <%= message %>
+                </div>
+            <% end %>
+            <%= text_field_tag("name", @user.name, {placeholder: "例) 名無し太郎"}) %>
+
+            <p>メールアドレス</p>
+            <% @user.errors.full_messages_for(:email).each do |message| %>
+                <div class="form-error">
+                    <%= message %>
+                </div>
+            <% end %>
+            <%= text_field_tag("email", @user.email, {placeholder: "例）example.xxx.com"}) %>
+
+            <p>パスワード</p>
+            <% @user.errors.full_messages_for(:password).each do |message| %>
+                <div class="form-error">
+                    <%= message %>
+                </div>
+            <% end %>
+            <%= text_field_tag("password", @user.password, {type: "password" ,placeholder: "6文字以上で入力下さい"}) %>
+
+            <input type="submit" value="新規登録" class="login-btn">
+        <% end %>
+        <div class="login">
+            <p class="login-link">登録済みの方は</p>
+            <%= link_to("/login", class:"login-link") do %>
+            こちら
+            <% end %>
+        </div>
+    </div>
+
+</div>

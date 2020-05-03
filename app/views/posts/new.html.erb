@@ -1,0 +1,54 @@
+<div class="container">
+<h1 >新規投稿</h1>
+
+<%= form_tag("/posts/create", {multipart: true}) do %>
+
+    <div class="edit-new-form">
+
+            <div class="post-edit-img">
+                <%= form_with(model: @blog, local: true) do |form| %>
+                    <%= form.label '画像選択' %>
+                    <% @post.errors.full_messages_for(:item_image).each do |message| %>
+                        <div class="form-error">
+                            <%= message %>
+                        </div>
+                    <% end %>
+
+                    <div id="img_field" onClick="$('#file').click()" >
+                        <i class="fas fa-image"></i><i class="fas fa-file-upload add"></i>
+                    </div>
+
+                    <%= form.file_field :image, class: "image", style: "display:none;", id: "file"%>
+                <% end %>
+            </div>
+
+            <p>商品カテゴリー</p><br/>
+            <% @post.errors.full_messages_for(:category_cd).each do |message| %>
+                <div class="form-error">
+                    <%= message %>
+                </div>
+            <% end %>
+            <%= select_tag 'category_cd', options_for_select([['選択してください', ''],['パソコン', 'PC'], ['PCモニター', 'PM'],['スマートフォン', 'SP'], ['タブレット', 'TB'], ['マウス', 'MS'], ['キーボード', 'KB'], ['USB', 'UB'], ['HDD', 'HD'], ['SSD', 'SD']]) %><br/>
+
+            <p>タイトル</p><br/>
+            <% @post.errors.full_messages_for(:item_title).each do |message| %>
+                <div class="form-error">
+                    <%= message %>
+                </div>
+            <% end %>
+            <input name="item_title" value="<%= @post.item_title %>" class="edit-title"><br/>
+
+            <p>感想&nbsp&nbsp;(300文字以内)</p><br/>
+            <% @post.errors.full_messages_for(:comment).each do |message| %>
+                <div class="form-error">
+                    <%= message %>
+                </div>
+            <% end %>
+            <textarea name="comment" class="post-write-new"><%= @post.comment %></textarea><br/>
+
+            <input type="submit" value="投稿" class="post-new-sibmit">
+    </div>
+
+<% end %>
+
+</div>
