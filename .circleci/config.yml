@@ -1,0 +1,88 @@
+version: 2.1 # バージョン指定  
+
+executors:  
+  default:  
+    working_directory: ~/sample  
+    docker:  
+      - image: circleci/ruby:2.6.1-node-browsers  
+        environment:  
+          BUNDLER_VERSION: 2.1.4 # <= これ必須！！  
+          BUNDLE_JOBS: 3  
+          BUNDLE_RETRY: 3  
+          BUNDLE_PATH: vendor/bundle  
+          PGHOST: 127.0.0.1  
+          PGUSER: sample  
+          PGPASSWORD: ""  
+      - image: circleci/postgres:11.5-alpine  
+        environment:  
+          POSTGRES_USER: sample  
+          POSTGRES_DB: sample_test  
+          POSTGRES_PASSWORD: ""  
+
+commands:  
+  setup:  
+    steps:  
+      - checkout  
+      - run:  
+          name: Update bundler # bundlerのバージョン２へのアップデート  
+          command: gem update bundler  
+
+      - run:  
+          name: Which bundler? # バージョン確認  
+          command: bundle -v  
+
+      - restore_cache: # キャッシュを読み込む  
+          keys:  
+            - gem-cache-v1-{{ checksum "Gemfile.lock" }}  
+            - gem-cache-v1-  
+
+      - run:  
+          name: Bundle Install  
+          command: bundle check --path vendor/bundle || bundle install --deployment  
+
+      - save_cache: # キャッシュを保存する  
+          key: gem-cache-v1-{{ checksum "Gemfile.lock" }}  
+          paths:  
+            - vendor/bundle  
+
+      # 以下はRails6でWebpackerを使う場合は必須   
+      - restore_cache:  
+          keys:  
+            - yarn-cache-v1-{{ checksum "yarn.lock" }}  
+            - yarn-cache-v1-  
+
+      - run:  
+          name: Yarn Install  
+          command: yarn install --cache-folder ~/.cache/yarn  
+
+      - save_cache:  
+          key: yarn-cache-v1-{{ checksum "yarn.lock" }}  
+          paths:  
+            - ~/.cache/yarn  
+
+jobs:  
+  test:  
+    executor: default  
+    environment:  
+      RAILS_ENV: test  
+    steps:  
+      - checkout  
+      - setup  
+      - run:  
+          name: Wait for DB  
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m  
+
+      - run:  
+          name: Database setup  
+          command: bin/rails db:schema:load --trace  
+
+      - run: # 普通のテストとシステムテストを実行する  
+          name: Rails Test  
+          command: |  
+            bin/rails test  
+            bin/rails test:system  
+
+workflows:  
+  build_and_test:  
+    jobs:  
+      - test  
