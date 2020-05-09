@@ -70,4 +70,10 @@ $(document).on('turbolinks:load', function() {
       });
     }
     toggleNav();
+    
+    var w = $(window).width();
+    var x = 630;
+    if (w >= x) {
+        $('.category ul ul').removeClass('dropdwn_menu');
+    }
 });

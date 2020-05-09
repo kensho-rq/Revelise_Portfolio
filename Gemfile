@@ -6,7 +6,7 @@ ruby '2.6.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
 # Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.4.4', '< 0.6.0'
+gem 'mysql2', '>= 0.4.4', '<= 0.8.16'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -37,6 +37,7 @@ gem 'rails-i18n'
 gem 'kaminari', '~> 0.17.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'unicorn', '~> 5.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

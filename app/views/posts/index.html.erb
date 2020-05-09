@@ -6,7 +6,7 @@
                     <img src="<%= "/user_images/#{@user.name_image}" %>", class='name-image' ">
                     <p class="post-name"><%= @user.name %></p>
             <% end %>
-            <p class="post-time"><%= @post.created_at.strftime("%Y-%m-%d %H:%M") %>&nbsp;に投稿</p>
+            <p class="post-time"><%= @post.created_at.strftime("%Y-%m-%d %H:%M") %>&nbsp;に投稿</p><br/>
 
             <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
                 <%= link_to("/likes/#{@post.id}/destroy", {method: "post"} ) do %>
@@ -63,7 +63,7 @@
             <% if @current_user.id == show_user.id %>
                 <p class="post-name"><%= link_to("削除", "/posts/#{show_comment.id}/destroy", {method: "post"}) %></p>
             <% end %>
-            <br/><%= show_comment.impression %>
+            <br/><p class="post-mm"><%= show_comment.impression %></p>
         </div>
         <hr>
         <% end %>

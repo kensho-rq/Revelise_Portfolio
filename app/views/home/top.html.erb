@@ -1,37 +1,40 @@
 <h1>投稿一覧</h1>
 
 <div class="category">
-    <h3>カテゴリー</h3>
-    <%= form_tag "/", :method => 'get' do %>
-        <ul>
-            <li>
-                <%= submit_tag "パソコン", name: "category_name" , value: "パソコン" %>
-            </li>
-            <li>
-                <%= submit_tag "PCモニター", name: "category_name" , value: "PCモニター" %>
-            </li>
-            <li>
-                <%= submit_tag "タブレット", name: "category_name" , value: "タブレット" %>
-            </li>
-            <li>
-                <%= submit_tag "スマートフォン", name: "category_name" , value: "スマートフォン" %>
-            </li>
-            <li>
-                <%= submit_tag "マウス", name: "category_name" , value: "マウス" %>
-            </li>
-            <li>
-                <%= submit_tag "キーボード", name: "category_name" , value: "キーボード" %>
-            </li>
-            <li>
-                <%= submit_tag "USB", name: "category_name" , value: "USB" %>
-            </li>
-            <li>
-                <%= submit_tag "HDD", name: "category_name" , value: "HDD" %>
-            </li>
-            <li>
-                <%= submit_tag "SSD", name: "category_name" , value: "SSD" %>
-            </li>
-        </ul>
+    <ul class="dropdwn">
+        <li><h3>カテゴリー</h3>
+        <%= form_tag "/", :method => 'get' do %>
+            <ul class=".test dropdwn_menu">
+                <li>
+                    <%= submit_tag "パソコン", name: "category_name" , value: "パソコン" %>
+                </li>
+                <li>
+                    <%= submit_tag "PCモニター", name: "category_name" , value: "PCモニター" %>
+                </li>
+                <li>
+                    <%= submit_tag "タブレット", name: "category_name" , value: "タブレット" %>
+                </li>
+                <li>
+                    <%= submit_tag "スマートフォン", name: "category_name" , value: "スマートフォン" %>
+                </li>
+                <li>
+                    <%= submit_tag "マウス", name: "category_name" , value: "マウス" %>
+                </li>
+                <li>
+                    <%= submit_tag "キーボード", name: "category_name" , value: "キーボード" %>
+                </li>
+                <li>
+                    <%= submit_tag "USB", name: "category_name" , value: "USB" %>
+                </li>
+                <li>
+                    <%= submit_tag "HDD", name: "category_name" , value: "HDD" %>
+                </li>
+                <li>
+                    <%= submit_tag "SSD", name: "category_name" , value: "SSD" %>
+                </li>
+            </ul>
+        </li>
+    </ul>
     <% end %>
 </div>
 
@@ -55,9 +58,12 @@
                     </div>
 
                     <% likes_count = Like.where(post_id: post.id).count %>
+                    <% follows_count = Follow.where(user_id: user.id).count %>
                     <div class="likes-count">
                         <span class="fa fa-heart like-btn-unlike"></span>
                         <%= likes_count %>
+                        <span class="fas fa-star"></span>
+                        <%= follows_count %>
                     </div>
 
                 <% end %>
@@ -78,9 +84,12 @@
                     </div>
 
                     <% likes_count = Like.where(post_id: post.id).count %>
+                    <% follows_count = Follow.where(user_id: user.id).count %>
                     <div class="likes-count">
                         <span class="fa fa-heart like-btn-unlike"></span>
                         <%= likes_count %>
+                        <span class="fas fa-star"></span>
+                        <%= follows_count %>
                     </div>
 
                 <% end %>
