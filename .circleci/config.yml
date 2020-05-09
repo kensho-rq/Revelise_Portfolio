@@ -4,7 +4,7 @@ executors:
   default:  
     working_directory: ~/sample  
     docker:  
-      - image: circleci/ruby:2.6.5-node-browsers  
+      - image: circleci/ruby:2.6.1-node-browsers  
         environment:  
           BUNDLER_VERSION: 2.1.4 # <= これ必須！！  
           BUNDLE_JOBS: 3  
@@ -45,6 +45,21 @@ commands:
           paths:  
             - vendor/bundle  
 
+      # 以下はRails6でWebpackerを使う場合は必須   
+      - restore_cache:  
+          keys:  
+            - yarn-cache-v1-{{ checksum "yarn.lock" }}  
+            - yarn-cache-v1-  
+
+      - run:  
+          name: Yarn Install  
+          command: yarn install --cache-folder ~/.cache/yarn  
+
+      - save_cache:  
+          key: yarn-cache-v1-{{ checksum "yarn.lock" }}  
+          paths:  
+            - ~/.cache/yarn  
+
 jobs:  
   test:  
     executor: default  
@@ -70,4 +85,4 @@ jobs:
 workflows:  
   build_and_test:  
     jobs:  
-      - test 
+      - test  
