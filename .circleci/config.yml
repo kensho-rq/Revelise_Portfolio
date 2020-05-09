@@ -68,14 +68,6 @@ jobs:
     steps:  
       - checkout  
       - setup  
-      - run:  
-          name: Wait for DB  
-          command: dockerize -wait tcp://localhost:5432 -timeout 1m  
-
-      - run:  
-          name: Database setup  
-          command: bin/rails db:schema:load --trace  
-
       - run: # 普通のテストとシステムテストを実行する  
           name: Rails Test  
           command: |  
