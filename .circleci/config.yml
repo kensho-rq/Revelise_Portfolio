@@ -4,7 +4,7 @@ executors:
   default:  
     working_directory: ~/sample  
     docker:  
-      - image: circleci/ruby:2.6.1-node-browsers  
+      - image: circleci/ruby:2.6.5-node-browsers  
         environment:  
           BUNDLER_VERSION: 2.1.4 # <= これ必須！！  
           BUNDLE_JOBS: 3  
@@ -45,6 +45,22 @@ commands:
           paths:  
             - vendor/bundle  
 
+jobs:  
+  test:  
+    executor: default  
+    environment:  
+      RAILS_ENV: test  
+    steps:  
+      - checkout  
+      - setup  
+      - run:  
+          name: Wait for DB  
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m  
+
+      - run:  
+          name: Database setup  
+          command: bin/rails db:schema:load --trace  
+
       - run: # 普通のテストとシステムテストを実行する  
           name: Rails Test  
           command: |  
@@ -54,4 +70,4 @@ commands:
 workflows:  
   build_and_test:  
     jobs:  
-      - test  
+      - test 
