@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'users/:id/likes' => 'users#likes'
   get 'users/:id/follows' => 'users#follows'
   get 'logout' => 'users#logout'
+  get "simple_login" => 'users#simple_login'
   post 'login' => 'users#login'
   post 'users/:id/update' => 'users#update'
   post 'users/create' => 'users#create'

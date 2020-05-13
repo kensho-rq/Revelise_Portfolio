@@ -35,7 +35,6 @@ input[type="text"],[type="password"]{
 
 input[type="submit"].login-btn{
     margin-top: 20px;
-    padding: 8px 24px;
     color: white;
     display: inline-block;
     opacity: 0.8;
@@ -45,6 +44,33 @@ input[type="submit"].login-btn{
     cursor:pointer;
     box-shadow:0 4px #232425;
     outline: none;
+    float: left;
+}
+
+p.simple-btn{
+    margin-top: 20px;
+    color: white;
+    display: inline-block;
+    font-size: 8px;
+    opacity: 0.8;
+    border-radius: 4px;
+    background-color: #242525;
+    padding: 15px 22px;
+    cursor: pointer;
+    box-shadow: 0 4px #232425;
+    outline: none;
+    border : 1px solid #fff ;
+}
+
+p.simple-btn:active{
+    box-shadow:none;
+    position: relative;
+    top:4px;
+}
+
+.login{
+    display: block;
+    width: fit-content;
 }
 
 input[type="submit"].login-btn:active{

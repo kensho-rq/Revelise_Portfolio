@@ -15,7 +15,12 @@
             <p>パスワード</p>
             <%= text_field_tag("password", @password ,{type: "password" ,placeholder: "6文字以上で入力下さい"}) %>
             <input type="submit" value="ログイン" class="login-btn">
+          <% end %>
+
+        <%= link_to("/simple_login") do %>
+           <br><br><br><p class="simple-btn">かんたんログイン</p>
         <% end %>
+
         <div class="login">
             <p class="login-link">登録をしていない方は</p>
             <%= link_to("/signup" ,class:"signup-link") do %>

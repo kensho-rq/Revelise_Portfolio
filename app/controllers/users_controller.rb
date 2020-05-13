@@ -60,6 +60,14 @@ class UsersController < ApplicationController
   def login_form
   end
 
+  def simple_login
+    @user = User.find_by(id: 12)
+
+    flash[:notice] = "ログインしました"
+    session[:user_id] = @user.id
+    redirect_to("/")
+  end
+
   def login
     @user = User.find_by(email: params[:email])
 
