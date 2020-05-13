@@ -1,88 +1,75 @@
-version: 2.1 # バージョン指定  
+version: 2.1
+orbs:
+  ruby: circleci/ruby@0.1.2
 
-executors:  
-  default:  
-    working_directory: ~/Revelise_Portfolio
-    docker:  
-      - image: circleci/ruby:2.6.1-node-browsers  
-        environment:  
-          BUNDLER_VERSION: 2.1.4 # <= これ必須！！  
-          BUNDLE_JOBS: 3  
-          BUNDLE_RETRY: 3  
-          BUNDLE_PATH: vendor/bundle  
-          PGHOST: 127.0.0.1  
-          PGUSER: root
-          PGPASSWORD: ""  
-      - image: circleci/postgres:11.5-alpine  
-        environment:  
-          POSTGRES_USER: root
-          POSTGRES_DB: resto_production
-          POSTGRES_PASSWORD: ""  
+jobs:
+  build:
+    working_directory: ~/circleci-demo-ruby-rails
+    docker:
+      - image: circleci/ruby:2.6.1-node-browsers-legacy
+        environment:
+          DB_HOST: 127.0.0.1
+          RAILS_ENV: test
+          BUNDLER_VERSION: 2.1.4
+      - image: circleci/mysql:8.0.19-ram
+        environment:
+          MYSQL_USER: root
+          MYSQL_DB: resto_production
+          POSTGRES_PASSWORD: ""
 
-commands:  
-  setup:  
-    steps:  
-      - checkout  
-      - run:  
-          name: Update bundler # bundlerのバージョン２へのアップデート  
-          command: gem update bundler  
+    steps:
+      - checkout
 
-      - run:  
-          name: Which bundler? # バージョン確認  
-          command: bundle -v  
+      # Restore bundle cache
+      - restore_cache:
+          keys:
+            - rails-demo-{{ checksum "Gemfile.lock" }}
+            - rails-demo-
 
-      - restore_cache: # キャッシュを読み込む  
-          keys:  
-            - gem-cache-v1-{{ checksum "Gemfile.lock" }}  
-            - gem-cache-v1-  
+      - run:
+          name: Which bundler?
+          command: bundle -v
 
-      - run:  
-          name: Bundle Install  
-          command: bundle check --path vendor/bundle || bundle install --deployment  
+      - run:
+          name: setup bundler
+          command: |
+            sudo gem update --system
+            sudo gem uninstall bundler
+            sudo rm /usr/local/bin/bundle
+            sudo gem install bundler
 
-      - save_cache: # キャッシュを保存する  
-          key: gem-cache-v1-{{ checksum "Gemfile.lock" }}  
-          paths:  
-            - vendor/bundle  
+      - run:
+          name: bundle install
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
 
-      # 以下はRails6でWebpackerを使う場合は必須   
-      - restore_cache:  
-          keys:  
-            - yarn-cache-v1-{{ checksum "yarn.lock" }}  
-            - yarn-cache-v1-  
+      # Store bundle cache
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
-      - run:  
-          name: Yarn Install  
-          command: yarn install --cache-folder ~/.cache/yarn  
+      # Database setup
+      - run: cp -v config/database.ci.yml config/database.yml
+      - run: bundle exec rails db:create
+      - run: bundle exec rails db:schema:load
 
-      - save_cache:  
-          key: yarn-cache-v1-{{ checksum "yarn.lock" }}  
-          paths:  
-            - ~/.cache/yarn  
+      # RSpec
+      - run:
+          name: run rspec
+          command: |
+            bundle exec rspec --profile 10 \
+                              --format RspecJunitFormatter \
+                              --out test_results/rspec.xml \
+                              --format progress \
+                              $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
 
-jobs:  
-  test:  
-    executor: default  
-    environment:  
-      RAILS_ENV: test  
-    steps:  
-      - checkout  
-      - setup  
-      - run:  
-          name: Wait for DB  
-          command: dockerize -wait tcp://localhost:5432 -timeout 1m  
-
-      - run:  
-          name: Database setup  
-          command: bin/rails db:schema:load --trace  
-
-      - run: # 普通のテストとシステムテストを実行する  
-          name: Rails Test  
-          command: |  
-            bin/rails test  
-            bin/rails test:system  
-
-workflows:  
-  build_and_test:  
-    jobs:  
-      - test  
+      # collect reports
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results
+      - store_artifacts:
+          path: tmp/screenshots
+          destination: test-screenshots
