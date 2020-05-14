@@ -101,20 +101,20 @@ div.page{
 }
 .search {
     font-family: 'PT Mono',sans-serif;
-	-webkit-appearance: none;
+    -webkit-appearance: none;
     display: inline-block;
     margin-top: 3px;
     margin-right: 0;
     margin-left: 30px;
-	margin-bottom: 20px;
-	padding: 10px;
-	width: 200px;
-	height: 45px;
-	font-size: 100%;
-	box-sizing: border-box;
-	border-radius: 5px 0 0 5px;
-	border: 1px solid #7c8288;
-	border-right: none;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 200px;
+    height: 45px;
+    font-size: 100%;
+    box-sizing: border-box;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #7c8288;
+    border-right: none;
 }
 .search-btn {
     font-family: 'PT Mono',sans-serif;
@@ -167,7 +167,7 @@ ul {
 }
 
 .dropdwn>li {
-    width: 148px;
+    width: 153px;
     margin: 1px;
 }
 
@@ -415,7 +415,7 @@ nav.pagination{
     float: none;
     width: 100%;
 }
-@media screen and (max-width:1046px){
+@media screen and (max-width:1066px){
     .global-nav {
         position: fixed;
         right: -320px; /* これで隠れる */
