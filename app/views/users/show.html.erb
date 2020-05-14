@@ -21,7 +21,7 @@
         <% if @user.profile == nil %>
         <p>ーーーーー</p>
         <% else %>
-        <p class="user-comment"><%= @user.profile %></p>
+        <p class="user-comment"><%= simple_format(@user.profile) %></p>
         <% end %>
       </li>
       <li>

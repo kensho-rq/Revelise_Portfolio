@@ -63,7 +63,7 @@
             <% if @current_user.id == show_user.id %>
                 <p class="post-name"><%= link_to("削除", "/posts/#{show_comment.id}/destroy", {method: "post"}) %></p>
             <% end %>
-            <br/><p class="post-mm"><%= show_comment.impression %></p>
+            <br/><p class="post-mm"><%= simple_format(show_comment.impression ) %></p>
         </div>
         <hr>
         <% end %>
