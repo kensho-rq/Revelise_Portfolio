@@ -40,10 +40,10 @@
         <div class="post-item-show">
             <img src="<%= "/item_images/#{@post.item_image}" %>" , class="post-image">
             <div class="post-item-comment">
-            <%= @post.comment %>
+            <%= simple_format(@post.comment) %>
             </div><br/>
 
-            <div><p>コメント入力欄</p></div>
+            <div><p class="comment-post">コメント入力欄</p></div>
             <%= form_tag("/posts/#{@post.id}/comment") do %>
                 <textarea name="impression" class="post-write" placeholder="100文字以内"><%= @item_comment.impression %></textarea><br/>
                 <input type="submit" value="送信"　class="submit-btn">
