@@ -1,0 +1,29 @@
+#docker-composeのバージョン
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: 
+      MYSQL_DATABASE: resto_development
+    ports:
+      - '5432:5432' # ホストからゲストへポートフォワード
+    volumes:
+      - ./src/db/mysql_data:/var/lib/mysql
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails server -p 3000 -b '0.0.0.0'"
+    tty: true
+    stdin_open: true
+    depends_on:
+      - db # DB側のコンテナが出来上がってからwebを実行する
+    ports:
+      - "3000:3000" # ホストからゲストへポートフォワード
+    volumes:
+      - .:/myproject # ソースコード変更したらDocker側も即反映されるように
+volumes:
+  postgresql-data:
+    driver: local
