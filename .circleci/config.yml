@@ -43,6 +43,12 @@ jobs:
           command: bundle -v
 
       - run:
+          name: default mysql client install
+          command: |
+                sudo apt update
+                sudo apt-get install default-mysql-client
+      
+      - run:
           name: bundle install
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle
