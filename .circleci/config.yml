@@ -37,6 +37,8 @@ jobs:
             sudo gem uninstall bundler
             sudo rm /usr/local/bin/bundle
             sudo gem install bundler --path=vendor/bundle
+            sudo bundle config --local build.mysql2 "--with-ldflags=-L/usr/local/opt/openssl/lib"
+            sudo bundle install
 
       - run:
           name: Which bundler?
