@@ -15,7 +15,7 @@ jobs:
         command: [--default-authentication-plugin=mysql_native_password]
         environment:
           MYSQL_USER: root
-          MYSQL_DB: resto_development
+          MYSQL_DB: resto_production
 
     steps:
       - checkout
