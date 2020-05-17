@@ -60,7 +60,6 @@ jobs:
 
       - run: mysql_config --socket
       - run: bundle exec rails db:create
-      - run: bundle exec rails db:migrate
       - run: bundle exec rails db:schema:load
 
       - run:
