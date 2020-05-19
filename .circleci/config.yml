@@ -60,8 +60,8 @@ jobs:
 
       - run: mysql_config --socket
       - run: cp -v config/database.ci.yml config/database.yml
-      - run: rake db:create RAILS_ENV=production
-      - run: bundle exec rails db:schema:load
+      - run: bundle exec rake db:create RAILS_ENV=production
+      - run: bundle exec rake db:schema:load
 
       - run:
           name: run rspec
