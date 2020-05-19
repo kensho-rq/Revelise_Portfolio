@@ -35,7 +35,9 @@ jobs:
           command: |
             sudo gem update --system
             sudo gem uninstall bundler
+            sudo gem uninstall mysql2
             sudo rm /usr/local/bin/bundle
+            sudo gem install mysql2 --platform=ruby
             sudo gem install bundler
 
       - run:
@@ -45,7 +47,6 @@ jobs:
       - run:
           name: bundle install
           command: |
-            bundle config --local build.mysql2 "--with-ldflags=-L/usr/local/opt/openssl/lib --with-cppflags=-I/usr/local/opt/openssl/include"
             bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       # Store bundle cache
