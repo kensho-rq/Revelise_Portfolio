@@ -10,7 +10,7 @@ jobs:
         environment:
           DB_HOST: 127.0.0.1
           RAILS_ENV: test
-          BUNDLER_VERSION: 2.1.4
+          BUNDLER_VERSION: 2.0.1
       - image: circleci/mysql:5.7.30-ram
         command: [--default-authentication-plugin=mysql_native_password]
         environment:
