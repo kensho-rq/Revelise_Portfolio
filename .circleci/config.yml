@@ -58,10 +58,8 @@ jobs:
           command: |
             cp -v config/database.ci.yml config/database.yml
 
-      - run: gem install mysql2
       - run: mysql_config --socket
-      - run: bundle exec rails db:create RAILS_ENV=productiona
-      - run: bundle exec rails db:migrate RAILS_ENV=production
+      - run: bundle exec rails db:create
       - run: bundle exec rails db:schema:load
 
       - run:
