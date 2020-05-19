@@ -1,5 +1,5 @@
 current directory: /var/www/Revelise_Portfolio/vendor/bundle/ruby/2.6.0/gems/raindrops-0.19.1/ext/raindrops
-/home/ken/.rbenv/versions/2.6.1/bin/ruby -I /home/ken/.rbenv/versions/2.6.1/lib/ruby/2.6.0 -r ./siteconf20200514-29651-1ug0g84.rb extconf.rb
+/home/ken/.rbenv/versions/2.6.1/bin/ruby -I /home/ken/.rbenv/versions/2.6.1/lib/ruby/2.6.0 -r ./siteconf20200519-26345-1ap231r.rb extconf.rb
 checking for mmap() in sys/mman.h... yes
 checking for munmap() in sys/mman.h... yes
 checking for mremap() in sys/mman.h... yes
@@ -126,4 +126,4 @@ linking shared-object raindrops_ext.so
 
 current directory: /var/www/Revelise_Portfolio/vendor/bundle/ruby/2.6.0/gems/raindrops-0.19.1/ext/raindrops
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 raindrops_ext.so ./.gem.20200514-29651-hj9fdo
+/usr/bin/install -c -m 0755 raindrops_ext.so ./.gem.20200519-26345-xnt47t

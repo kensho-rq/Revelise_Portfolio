@@ -1,5 +1,5 @@
 current directory: /var/www/Revelise_Portfolio/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.6/ext/bootsnap
-/home/ken/.rbenv/versions/2.6.1/bin/ruby -I /home/ken/.rbenv/versions/2.6.1/lib/ruby/2.6.0 -r ./siteconf20200514-29651-kv5251.rb extconf.rb
+/home/ken/.rbenv/versions/2.6.1/bin/ruby -I /home/ken/.rbenv/versions/2.6.1/lib/ruby/2.6.0 -r ./siteconf20200519-26345-bnuxeq.rb extconf.rb
 creating Makefile
 
 current directory: /var/www/Revelise_Portfolio/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.6/ext/bootsnap
@@ -32,4 +32,4 @@ linking shared-object bootsnap/bootsnap.so
 
 current directory: /var/www/Revelise_Portfolio/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.6/ext/bootsnap
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20200514-29651-1oypiar/bootsnap
+/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20200519-26345-1rixdxv/bootsnap

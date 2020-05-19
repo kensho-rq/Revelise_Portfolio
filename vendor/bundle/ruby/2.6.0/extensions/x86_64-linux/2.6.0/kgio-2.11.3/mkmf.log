@@ -100,7 +100,7 @@ checked program was:
 /* end */
 
 "gcc -o conftest -I/home/ken/.rbenv/versions/2.6.1/include/ruby-2.6.0/x86_64-linux -I/home/ken/.rbenv/versions/2.6.1/include/ruby-2.6.0/ruby/backward -I/home/ken/.rbenv/versions/2.6.1/include/ruby-2.6.0 -I. -I/home/ken/.rbenv/versions/2.6.1/include    -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -ggdb3 -Wall -Wextra -Wdeclaration-after-statement -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wrestrict -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC conftest.c  -L. -L/home/ken/.rbenv/versions/2.6.1/lib -Wl,-rpath,/home/ken/.rbenv/versions/2.6.1/lib -L. -L/home/ken/.rbenv/versions/2.6.1/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic    -lrt  -Wl,-rpath,/home/ken/.rbenv/versions/2.6.1/lib -L/home/ken/.rbenv/versions/2.6.1/lib -lruby -lnsl -lrt  -lm   -lc"
-/tmp/cch6SKGO.o: In function `t':
+/tmp/cchgZu3K.o: In function `t':
 /var/www/Revelise_Portfolio/vendor/bundle/ruby/2.6.0/gems/kgio-2.11.3/ext/kgio/conftest.c:15: undefined reference to `t_open'
 collect2: error: ld returned 1 exit status
 checked program was:
@@ -748,7 +748,7 @@ checked program was:
 /* end */
 
 "gcc -o conftest -I/home/ken/.rbenv/versions/2.6.1/include/ruby-2.6.0/x86_64-linux -I/home/ken/.rbenv/versions/2.6.1/include/ruby-2.6.0/ruby/backward -I/home/ken/.rbenv/versions/2.6.1/include/ruby-2.6.0 -I. -I/home/ken/.rbenv/versions/2.6.1/include    -D_GNU_SOURCE -DPOSIX_C_SOURCE=1-D_POSIX_C_SOURCE=200112L -O3 -ggdb3 -Wall -Wextra -Wdeclaration-after-statement -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wrestrict -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable  -fPIC conftest.c  -L. -L/home/ken/.rbenv/versions/2.6.1/lib -Wl,-rpath,/home/ken/.rbenv/versions/2.6.1/lib -L. -L/home/ken/.rbenv/versions/2.6.1/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic    -lrt  -Wl,-rpath,/home/ken/.rbenv/versions/2.6.1/lib -L/home/ken/.rbenv/versions/2.6.1/lib -lruby -lrt  -lm   -lc"
-/tmp/ccTe5Nvo.o: In function `t':
+/tmp/ccLEnGrq.o: In function `t':
 /var/www/Revelise_Portfolio/vendor/bundle/ruby/2.6.0/gems/kgio-2.11.3/ext/kgio/conftest.c:15: undefined reference to `rb_thread_blocking_region'
 collect2: error: ld returned 1 exit status
 checked program was:

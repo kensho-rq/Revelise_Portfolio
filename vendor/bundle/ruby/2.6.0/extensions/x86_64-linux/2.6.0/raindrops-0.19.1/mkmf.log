@@ -2647,7 +2647,7 @@ cc1: warning: unrecognized command line option ‘-Wno-self-assign’
 cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
 cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
 cc1: warning: unrecognized command line option ‘-Wno-cast-function-type’
-/tmp/ccxOXCjO.o: In function `t':
+/tmp/cctXhAiW.o: In function `t':
 /var/www/Revelise_Portfolio/vendor/bundle/ruby/2.6.0/gems/raindrops-0.19.1/ext/raindrops/conftest.c:15: undefined reference to `rb_thread_blocking_region'
 collect2: error: ld returned 1 exit status
 checked program was:

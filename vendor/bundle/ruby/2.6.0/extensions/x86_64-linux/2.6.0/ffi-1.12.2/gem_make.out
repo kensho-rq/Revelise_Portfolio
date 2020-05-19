@@ -1,5 +1,5 @@
 current directory: /var/www/Revelise_Portfolio/vendor/bundle/ruby/2.6.0/gems/ffi-1.12.2/ext/ffi_c
-/home/ken/.rbenv/versions/2.6.1/bin/ruby -I /home/ken/.rbenv/versions/2.6.1/lib/ruby/2.6.0 -r ./siteconf20200514-29651-1sha3ch.rb extconf.rb
+/home/ken/.rbenv/versions/2.6.1/bin/ruby -I /home/ken/.rbenv/versions/2.6.1/lib/ruby/2.6.0 -r ./siteconf20200519-26345-150qesy.rb extconf.rb
 checking for ffi.h... no
 checking for ffi.h in /usr/local/include,/usr/include/ffi... no
 checking for shlwapi.h... no
@@ -178,4 +178,4 @@ compiling Types.c
 compiling Variadic.c
 compiling ffi.c
 linking shared-object ffi_c.so
-/usr/bin/install -c -m 0755 ffi_c.so ./.gem.20200514-29651-19n6wxd
+/usr/bin/install -c -m 0755 ffi_c.so ./.gem.20200519-26345-46cha0
