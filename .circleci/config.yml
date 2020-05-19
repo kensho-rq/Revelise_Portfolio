@@ -59,9 +59,8 @@ jobs:
             cp -v config/database.ci.yml config/database.yml
 
       - run: mysql_config --socket
-      - run: cp -v config/database.ci.yml config/database.yml
-      - run: bundle exec rake db:create RAILS_ENV=production
-      - run: bundle exec rake db:schema:load
+      - run: bundle exec rails db:migrate
+      - run: bundle exec rails db:schema:load
 
       - run:
           name: run rspec
