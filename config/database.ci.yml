@@ -11,4 +11,4 @@ default: &default
 
 test:
   <<: *default
-  database: resto_development # .circleci/config.yml のMYSQL_DBと揃える。
+  database: resto_productiont # .circleci/config.yml のMYSQL_DBと揃える。
