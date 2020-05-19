@@ -37,6 +37,8 @@ jobs:
             sudo gem uninstall bundler
             sudo rm /usr/local/bin/bundle
             sudo gem install bundler
+            gem uninstall mysql2
+            gem pristine mysql2
 
       - run:
           name: Which bundler?
