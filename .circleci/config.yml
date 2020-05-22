@@ -33,6 +33,7 @@ jobs:
       - run:
           name: setup bundler
           command: |
+            sudo rm -rf vendor/bundle/ruby
             sudo gem update --system
             sudo gem uninstall bundler
             sudo rm /usr/local/bin/bundle
