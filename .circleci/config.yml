@@ -46,7 +46,6 @@ jobs:
             rm -rf vendor/bundle/ruby
             sudo yum list installed | grep mariadb
 sudo yum install mysql-devel
-sudo yum install http://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
 sudo yum install mysql-community-server
 sudo yum clean all
 sudo rm -rf /var/cache/yum
