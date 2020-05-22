@@ -35,7 +35,6 @@ jobs:
           command: |
             sudo gem update --system
             sudo gem uninstall bundler
-            sudo rbenv install 2.6.1
             sudo gem install rails
             sudo rm /usr/local/bin/bundle
             sudo gem install bundler
