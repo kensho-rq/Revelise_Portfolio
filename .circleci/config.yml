@@ -45,7 +45,6 @@ jobs:
             yum install mysql-community-server
             bundle config --local build.mysql2 "--with-ldflags=-L/usr/local/opt/openssl/lib"
             yum install mysql-devel
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       # Store bundle cache
       - save_cache:
