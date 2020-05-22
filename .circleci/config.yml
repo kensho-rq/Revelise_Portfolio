@@ -41,10 +41,11 @@ jobs:
       - run:
           name: bundle install
           command: |
-            yum install mysql-devel
-            yum install mysql-community-server
+            bundle install mysql-devel
+            bundle install mysql-community-server
             bundle config --local build.mysql2 "--with-ldflags=-L/usr/local/opt/openssl/lib"
-            yum install mysql-devel
+            bundle install mysql-devel
+
 
       # Store bundle cache
       - save_cache:
