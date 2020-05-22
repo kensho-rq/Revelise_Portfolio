@@ -43,7 +43,6 @@ jobs:
           command: |
             source ~/.nvm/nvm.shc
             rm -rf vendor/bundle/ruby
-            sudo yum list installed | grep mariadb
 sudo yum install mysql-devel
 sudo yum install mysql-community-server
 sudo yum clean all
