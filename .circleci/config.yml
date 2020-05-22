@@ -35,10 +35,9 @@ jobs:
           command: |
             sudo gem update --system
             sudo gem uninstall bundler
+            sudo rbenv install 2.6.1
+            sudo gem install rails
             sudo rm /usr/local/bin/bundle
-            git clone https://github.com/creationix/nvm.git ~/.nvm
-source ~/.nvm/nvm.shc
-rm -rf vendor/bundle/ruby
             sudo gem install bundler
 
       - run:
