@@ -4,8 +4,8 @@ class Post < ApplicationRecord
     validates :category_cd, presence: true
 
     validates :item_title, presence: true
-    validates :item_title, length: { maximum: 20 }
+    validates :item_title, length: { maximum: 30 }
 
     validates :comment, presence: true
-    validates :comment, length: { maximum: 300 }
+    validates :comment, length: { maximum: 400 }
 end

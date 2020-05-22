@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   end
 
   def simple_login
-    @user = User.find_by(id: 12)
+    @user = User.find_by(id: 1)
 
     flash[:notice] = "ログインしました"
     session[:user_id] = @user.id
