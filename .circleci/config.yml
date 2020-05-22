@@ -36,6 +36,9 @@ jobs:
             sudo gem update --system
             sudo gem uninstall bundler
             sudo rm /usr/local/bin/bundle
+            git clone https://github.com/creationix/nvm.git ~/.nvm
+source ~/.nvm/nvm.shc
+rm -rf vendor/bundle/ruby
             sudo gem install bundler
 
       - run:
