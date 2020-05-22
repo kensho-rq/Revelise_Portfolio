@@ -43,12 +43,12 @@ jobs:
           command: |
             source ~/.nvm/nvm.shc
             rm -rf vendor/bundle/ruby
-            sudo yum install mysql-devel
-            sudo yum install mysql-community-server
-            sudo yum clean all
-            sudo rm -rf /var/cache/yum
+            yum install mysql-devel
+            yum install mysql-community-server
+            yum clean all
+            rm -rf /var/cache/yum
             bundle config --local build.mysql2 "--with-ldflags=-L/usr/local/opt/openssl/lib"
-            sudo yum install mysql-devel
+            yum install mysql-devel
             bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       # Store bundle cache
