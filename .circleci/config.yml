@@ -41,6 +41,17 @@ jobs:
       - run:
           name: bundle install
           command: |
+            git clone https://github.com/creationix/nvm.git ~/.nvm
+            source ~/.nvm/nvm.shc
+            rm -rf vendor/bundle/ruby
+            sudo yum list installed | grep mariadb
+sudo yum install mysql-devel
+sudo yum install http://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
+sudo yum install mysql-community-server
+sudo yum clean all
+sudo rm -rf /var/cache/yum
+bundle config --local build.mysql2 "--with-ldflags=-L/usr/local/opt/openssl/lib"
+            sudo yum install mysql-devel
             bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       # Store bundle cache
