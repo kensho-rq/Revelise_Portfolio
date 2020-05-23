@@ -19,9 +19,6 @@ header {
     box-shadow: -1px 1px 1px rgba(0,0,0,0.1);
     z-index: 60;
 }
-a {
-    -webkit-tap-highlight-color:rgba(0,0,0,0);
-}
 
 .header-title a {
     text-decoration: none;
@@ -49,7 +46,6 @@ a {
     float: left;
     line-height: normal;
     list-style: none;
-    -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 
 .header-right a {
@@ -58,7 +54,6 @@ a {
     padding: 10px;
     text-decoration: none;
     cursor: pointer;
-    -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 
 .header-right a:hover {
@@ -178,8 +173,7 @@ ul {
 }
 
 li.my{
-    height: 40px;
-    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    height: 33px;
 }
 
 .dropdwn li {
@@ -427,12 +421,10 @@ nav.pagination{
     border-radius: 23px;
     font-family: 'Nunito', sans-serif;
 }
-
 .category ul li {
     float: none;
     width: 100%;
 }
-
 @media screen and (max-width:1066px){
     .global-nav {
         position: fixed;
@@ -454,9 +446,7 @@ nav.pagination{
         height: 60px; /* クリックしやすいようにちゃんと高さを指定する */
         cursor: pointer;
         z-index: 300;
-	-webkit-tap-highlight-color:rgba(0,0,0,0);
     }
-
     .global-nav__list {
         margin: 0;
         padding: 0;
@@ -506,7 +496,7 @@ nav.pagination{
         transition: all .6s;
         cursor: pointer;
     }
-
+      /* 表示された時用のCSS */
     .nav-open .global-nav {
         right: 0;
     }
@@ -561,24 +551,6 @@ nav.pagination{
     .item-title, .user-name, .likes-count {
         font-size: 20px;
         color: #000000;
-    }
-
-   .dropdwn_menu li a {
-        color: #7c8288;
-        font-size: 20px;
-        font-weight: 500;
-	-webkit-tap-highlight-color:rgba(0,0,0,0);
-    }
-
-    .dropdwn_menu li a:hover {
-        background: unset;
-        color: #fff;
-        transition: color .3s;
-    }
-
-    ul.dropdwn_menu{
-	 background-color: #343a40;
-         border: 0px;
     }
 
 }
@@ -645,15 +617,17 @@ nav.pagination{
         box-shadow: none;
         outline: none;
         font-size: 15px;
-	-webkit-tap-highlight-color:rgba(0,0,0,0);
     }
     .top-container {
+        /* float: right; */
         width: 100%;
         margin-right: 0px;
     }
     .top-item {
         padding: 8%;
         margin: 10px 0;
+        /* margin: 20px 10px 20px 20px; */
+        /* float: left; */
         box-shadow: 0 2px 6px #c1ced7;
         border-radius: 1%;
     }
