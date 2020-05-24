@@ -8,7 +8,7 @@
 # 使用技術
 * HTML
 * CSS
-* Jquery
+* jQuery
 * Ruby 2.6.1
 * Ruby on Rails 5.2.4.2
 * MYSQL 5.7.30
