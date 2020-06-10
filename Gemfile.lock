@@ -120,7 +120,8 @@ GEM
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     public_suffix (4.0.5)
-    puma (3.12.5)
+    puma (4.3.5)
+      nio4r (~> 2.0)
     rack (2.2.2)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -213,7 +214,7 @@ GEM
       railties (>= 5.0)
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
-    websocket-extensions (0.1.4)
+    websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
@@ -234,7 +235,7 @@ DEPENDENCIES
   kaminari (~> 0.17.0)
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.4.4, <= 0.8.16)
-  puma (~> 3.11)
+  puma (>= 3.12.6)
   rails (~> 5.2.4, >= 5.2.4.2)
   rails-i18n
   rspec_junit_formatter
