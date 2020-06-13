@@ -85,7 +85,6 @@ jobs:
       - run:
           name: テスト結果を保存
           command: |
-            sudo rm .bundle/config
             sudo gem update --system
             sudo gem update bundler
             sudo bundle install
