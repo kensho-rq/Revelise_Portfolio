@@ -93,6 +93,7 @@ jobs:
             sudo bundle install
             mkdir -p ~/cucumber
             bundle exec cucumber --format pretty --format json --out ~/cucumber/tests.cucumber
+            cucumber --init
           when: always
       - store_test_results:
           path: ~/cucumber
