@@ -93,7 +93,6 @@ jobs:
             sudo gem install rspec
             sudo bundle install
             mkdir -p ~/cucumber
-            ucumber --init
             bundle exec cucumber --format pretty --format json --out ~/cucumber/tests.cucumber
             
           when: always
