@@ -89,6 +89,7 @@ jobs:
           command: |
             sudo gem update --system
             sudo gem update bundler
+            sudo gem env
             sudo bundle install
             mkdir -p ~/cucumber
             bundle exec cucumber --format pretty --format json --out ~/cucumber/tests.cucumber
