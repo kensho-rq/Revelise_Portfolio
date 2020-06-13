@@ -39,6 +39,9 @@ gem 'kaminari', '~> 1.2.1'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'unicorn', '~> 5.1'
 gem 'therubyracer'
+gem 'rspec_junit_formatter'
+gem 'minitest-ci'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
