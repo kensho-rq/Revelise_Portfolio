@@ -82,3 +82,8 @@ jobs:
       - store_artifacts:
           path: tmp/screenshots
           destination: test-screenshots
+
+workflows:
+    build-and-test:
+      jobs:
+        - build-and-test
