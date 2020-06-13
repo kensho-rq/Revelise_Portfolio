@@ -84,6 +84,8 @@ jobs:
           destination: test-screenshots
 
 workflows:
-    build-and-test:
-      jobs:
-        - build-and-test
+  build-test-lint:
+    jobs:
+      - swiftlint
+      - danger
+      - build-and-test
