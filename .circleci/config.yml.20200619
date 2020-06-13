@@ -37,7 +37,6 @@ jobs:
             sudo gem update --system
             sudo gem uninstall bundler
             sudo rm /usr/local/bin/bundle
-            sudo gem update bundler
             sudo gem install bundler
 
       - run:
@@ -82,3 +81,17 @@ jobs:
       - store_artifacts:
           path: tmp/screenshots
           destination: test-screenshots
+
+      - run:
+          name: テスト結果を保存
+          command: |
+            sudo gem update --system
+            sudo gem update bundler
+            sudo bundle install
+            mkdir -p ~/cucumber
+            bundle exec cucumber --format pretty --format json --out ~/cucumber/tests.cucumber
+          when: always
+      - store_test_results:
+          path: ~/cucumber
+      - store_artifacts:
+          path: ~/cucumber

@@ -27,7 +27,7 @@ $(document).on('turbolinks:load', function() {
         $('#explanation').fadeIn();
     });
 
-    $('.close-modal').click(function(){
+    $('#explanation').click(function(){
         $('#explanation').fadeOut();
     });
 
@@ -61,7 +61,7 @@ $(document).on('turbolinks:load', function() {
       var body = document.body;
       var hamburger = document.getElementById('js-hamburger');
       var blackBg = document.getElementById('js-black-bg');
-    
+
       hamburger.addEventListener('click', function() {
         body.classList.toggle('nav-open');
       });
@@ -70,7 +70,7 @@ $(document).on('turbolinks:load', function() {
       });
     }
     toggleNav();
-    
+
     var w = $(window).width();
     var x = 630;
     if (w >= x) {
