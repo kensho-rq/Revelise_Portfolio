@@ -41,7 +41,13 @@ gem 'unicorn', '~> 5.1'
 gem 'therubyracer'
 gem 'rspec_junit_formatter'
 gem 'minitest-ci'
+gem 'cucumber'
 
+group :test do
+  gem 'cucumber-rails', require: false
+  # database_cleaner is not mandatory, but highly recommended
+  gem 'database_cleaner'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
