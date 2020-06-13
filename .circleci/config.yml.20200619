@@ -37,7 +37,6 @@ jobs:
             sudo gem update --system
             sudo gem uninstall bundler
             sudo rm /usr/local/bin/bundle
-            sudo gem update bundler
             sudo gem install bundler
 
       - run:
