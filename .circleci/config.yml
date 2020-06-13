@@ -72,7 +72,7 @@ jobs:
                               --format progress \
                               $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
 
-      collect reports
+      # collect reports
       - store_test_results:
           path: /tmp/test-results
       - store_artifacts:
@@ -81,3 +81,14 @@ jobs:
       - store_artifacts:
           path: tmp/screenshots
           destination: test-screenshots
+
+      - run:
+          name: テスト結果を保存
+          command: |
+            mkdir -p ~/cucumber
+            bundle exec cucumber pretty --format json --out ~/cucumber/tests.cucumber
+          when: always
+      - store_test_results:
+          path: ~/cucumber
+      - store_artifacts:
+          path: ~/cucumber
