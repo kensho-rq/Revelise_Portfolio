@@ -82,10 +82,3 @@ jobs:
       - store_artifacts:
           path: tmp/screenshots
           destination: test-screenshots
-
-workflows:
-  build:
-    jobs:
-      - swiftlint
-      - danger
-      - build-and-test
