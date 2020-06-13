@@ -27,7 +27,7 @@ $(document).on('turbolinks:load', function() {
         $('#explanation').fadeIn();
     });
 
-    $('.close-modal').click(function(){
+    $('#explanation').click(function(){
         $('#explanation').fadeOut();
     });
 
