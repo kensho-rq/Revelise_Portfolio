@@ -115,8 +115,3 @@ jobs:
             echo "aws configure set region ap-northeast-1" >> ./sg.sh
             echo "aws ec2 revoke-security-group-ingress --group-id ${AWS_SG} --protocol tcp --port 22 --cidr ${IP}/32" >> ./sg.sh
             bash ./sg.sh
-workflows:
-  build:
-    jobs:
-      - build:
-          context: golcommu_context
