@@ -89,11 +89,12 @@ jobs:
           command: |
             sudo gem update --system
             sudo gem update bundler
-            sudo gem env
+            sudo gem install cucumber
+            sudo gem install rspec
             sudo bundle install
             mkdir -p ~/cucumber
-            bundle exec cucumber
             sudo ucumber --init
+            bundle exec cucumber --format pretty --format json --out ~/cucumber/tests.cucumber
             
           when: always
       - store_test_results:
