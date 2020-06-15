@@ -27,8 +27,8 @@ $(document).on('turbolinks:load', function() {
         $('#explanation').fadeIn();
     });
 
-    $('#explanation').click(function(){
-         $('#explanation').fadeOut();
+    $('.close-modal').click(function(){
+        $('#explanation').fadeOut();
     });
 
     $('.dropdwn li').hover(function(){
