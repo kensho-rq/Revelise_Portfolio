@@ -28,7 +28,11 @@ $(document).on('turbolinks:load', function() {
     });
 
     $('#explanation').click(function(){
+<<<<<<< HEAD
          $('#explanation').fadeOut();
+=======
+        $('#explanation').fadeOut();
+>>>>>>> 4d5a18faa43da7edb6a42c9e6db7fdec12804eeb
     });
 
     $('.dropdwn li').hover(function(){
@@ -61,7 +65,7 @@ $(document).on('turbolinks:load', function() {
       var body = document.body;
       var hamburger = document.getElementById('js-hamburger');
       var blackBg = document.getElementById('js-black-bg');
-    
+
       hamburger.addEventListener('click', function() {
         body.classList.toggle('nav-open');
       });
@@ -70,7 +74,7 @@ $(document).on('turbolinks:load', function() {
       });
     }
     toggleNav();
-    
+
     var w = $(window).width();
     var x = 630;
     if (w >= x) {

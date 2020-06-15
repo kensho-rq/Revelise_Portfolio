@@ -34,11 +34,20 @@ gem 'bcrypt'
 gem 'rails-i18n'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'kaminari', '~> 0.17.0'
+gem 'kaminari', '~> 1.2.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'unicorn', '~> 5.1'
 gem 'therubyracer'
+gem 'rspec_junit_formatter'
+gem 'minitest-ci'
+gem 'cucumber'
+
+group :test do
+  gem 'cucumber-rails', require: false
+  # database_cleaner is not mandatory, but highly recommended
+  gem 'database_cleaner'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
