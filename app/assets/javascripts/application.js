@@ -28,11 +28,7 @@ $(document).on('turbolinks:load', function() {
     });
 
     $('#explanation').click(function(){
-<<<<<<< HEAD
-         $('#explanation').fadeOut();
-=======
         $('#explanation').fadeOut();
->>>>>>> 4d5a18faa43da7edb6a42c9e6db7fdec12804eeb
     });
 
     $('.dropdwn li').hover(function(){
