@@ -38,10 +38,12 @@ gem 'kaminari', '~> 1.2.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'unicorn', '~> 5.1'
-gem 'therubyracer'
 gem 'rspec_junit_formatter'
 gem 'minitest-ci'
 gem 'cucumber'
+gem 'therubyracer'
+gem 'rubocop'
+gem 'rubocop-rails'
 
 group :test do
   gem 'cucumber-rails', require: false
