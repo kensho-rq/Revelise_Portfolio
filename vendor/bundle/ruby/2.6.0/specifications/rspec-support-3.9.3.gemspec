@@ -17,21 +17,18 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT".freeze]
   s.rdoc_options = ["--charset=UTF-8".freeze]
   s.required_ruby_version = Gem::Requirement.new(">= 1.8.7".freeze)
-  s.rubygems_version = "3.0.1".freeze
+  s.rubygems_version = "3.1.4".freeze
   s.summary = "rspec-support-3.9.3".freeze
 
-  s.installed_by_version = "3.0.1" if s.respond_to? :installed_by_version
+  s.installed_by_version = "3.1.4" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
+  end
 
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<rake>.freeze, ["> 10.0.0"])
-      s.add_development_dependency(%q<thread_order>.freeze, ["~> 1.1.0"])
-    else
-      s.add_dependency(%q<rake>.freeze, ["> 10.0.0"])
-      s.add_dependency(%q<thread_order>.freeze, ["~> 1.1.0"])
-    end
+  if s.respond_to? :add_runtime_dependency then
+    s.add_development_dependency(%q<rake>.freeze, ["> 10.0.0"])
+    s.add_development_dependency(%q<thread_order>.freeze, ["~> 1.1.0"])
   else
     s.add_dependency(%q<rake>.freeze, ["> 10.0.0"])
     s.add_dependency(%q<thread_order>.freeze, ["~> 1.1.0"])

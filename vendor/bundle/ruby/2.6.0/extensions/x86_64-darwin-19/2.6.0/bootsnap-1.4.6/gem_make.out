@@ -1,0 +1,15 @@
+current directory: /Users/kensho/workspace/Revelise_Portfolio/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.6/ext/bootsnap
+/Users/kensho/.rbenv/versions/2.6.1/bin/ruby -I /Users/kensho/.rbenv/versions/2.6.1/lib/ruby/site_ruby/2.6.0 -r ./siteconf20200617-29866-gbznn8.rb extconf.rb
+creating Makefile
+
+current directory: /Users/kensho/workspace/Revelise_Portfolio/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.6/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /Users/kensho/workspace/Revelise_Portfolio/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.6/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/kensho/workspace/Revelise_Portfolio/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.6/ext/bootsnap
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20200617-29866-bkpa2u/bootsnap
