@@ -1,0 +1,13 @@
+current directory: /Users/kensho/workspace/Revelise_Portfolio/vendor/bundle/ruby/2.6.0/gems/libv8-3.16.14.19/ext/libv8
+/Users/kensho/.rbenv/versions/2.6.1/bin/ruby -I /Users/kensho/.rbenv/versions/2.6.1/lib/ruby/site_ruby/2.6.0 -r ./siteconf20200617-44471-1j9bpwa.rb extconf.rb --with-system-v8
+creating Makefile
+
+current directory: /Users/kensho/workspace/Revelise_Portfolio/vendor/bundle/ruby/2.6.0/gems/libv8-3.16.14.19/ext/libv8
+make "DESTDIR=" clean
+
+current directory: /Users/kensho/workspace/Revelise_Portfolio/vendor/bundle/ruby/2.6.0/gems/libv8-3.16.14.19/ext/libv8
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+current directory: /Users/kensho/workspace/Revelise_Portfolio/vendor/bundle/ruby/2.6.0/gems/libv8-3.16.14.19/ext/libv8
+make "DESTDIR=" install
