@@ -37,3 +37,6 @@
 
 # データベース設計図
 ![alt text](./public/Database.jpeg)
+
+# クラウドサーバー設計図
+![alt text](./public/Cloud_server.jpeg)
