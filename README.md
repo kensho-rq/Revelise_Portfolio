@@ -5,7 +5,7 @@
 ![alt text](./public/Revelise.jpeg)
 
 # URL
-* http://www.kenken1blog.com:3001/
+* http://www.kenken1blog.com:3001
 
 # 使用技術
 * HTML
