@@ -34,3 +34,6 @@
 * 各ユーザー投稿一覧
 * いいね一覧/フォロー一覧
 * ユーザー情報の変更
+
+# データベース設計図
+![alt text](./public/Database_ blueprint.jpeg)
