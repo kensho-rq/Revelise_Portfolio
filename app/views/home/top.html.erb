@@ -81,15 +81,16 @@
 
                     <% user = User.find_by(id: post.user_id) %>
                     <div class="user-name">
-                        <%= user.name %>
+                        <p class="user-name-title">投稿者:&nbsp;</p><%= user.name %>
                     </div>
 
                     <% likes_count = Like.where(post_id: post.id).count %>
                     <% follows_count = Follow.where(user_id: user.id).count %>
                     <div class="likes-count">
-                        <span class="fa fa-heart like-btn-unlike"></span>
-                        <%= likes_count %>
-                        <span class="fas fa-star"></span>
+                       いいね！<span class="fa fa-heart like-btn-unlike"></span>
+                       <%= likes_count %><br>
+                       フォロワー
+                       <span class="fas fa-star"></span>
                         <%= follows_count %>
                     </div>
 
