@@ -5,7 +5,7 @@
 ![alt text](./public/Revelise.jpeg)
 
 # URL
-* http://www.kenken1blog.com:3001/
+* http://www.kenken1blog.com:3001
 
 # 使用技術
 * HTML
@@ -34,3 +34,9 @@
 * 各ユーザー投稿一覧
 * いいね一覧/フォロー一覧
 * ユーザー情報の変更
+
+# データベース設計図
+![alt text](./public/Database.jpeg)
+
+# クラウドサーバー設計図
+![alt text](./public/Cloud_server.jpeg)
