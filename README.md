@@ -6,6 +6,7 @@
 
 # URL
 * http://www.kenken1blog.com:3001
+※サーバーは閉鎖しました
 
 # 使用技術
 * HTML
